@@ -29,6 +29,10 @@
                 <span role="img" aria-label="create post" title="create post">🆕</span>
             </a> |
 
+            <a href="{% url 'users:users-profile' %}">
+                <span role="img" aria-label="user profile" title="user profile">👤</span>
+            </a> |
+
 
             <form class="logout" action="{% url 'users:logout' %}" method="post">
                 {% csrf_token %}
