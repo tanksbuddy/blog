@@ -1,7 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from posts.models import Post
 
 # Create your views here.
 
@@ -34,5 +36,8 @@ def logout_view(request):
         return redirect("posts:list")
     
 @login_required
-def profile(request):
-    return render(request, 'users/user_profile.html')
+def profile(request, username):
+    user = get_object_or_404(User, username=username)
+    posts = Post.objects.filter(author=user)
+
+    return render(request, 'users/user_profile.html', {'user': user, 'posts': posts})
