@@ -106,7 +106,9 @@ a:hover {
 
 .logout-button {
     font-size: 2.5rem;
-    background:none;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .logout-button:hover {
