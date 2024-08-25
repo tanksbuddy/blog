@@ -13,7 +13,7 @@
     <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 <body>
-    <nav>
+    <nav class="topnav">
         <a href="/">
             <span role="img" aria-label="Home" title="Home">🏠</span>
         </a> | 
@@ -46,6 +46,8 @@
                 <span role="img" aria-label="Login" title="Login">🔑</span>
             </a> |
         {% endif %}
+
+        <img src={% static 'images/snail.jpg' %}></img>
     </nav>
     <main>
         {% block content %}
