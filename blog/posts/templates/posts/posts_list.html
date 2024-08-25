@@ -10,7 +10,12 @@
 
         {% for post in posts %}
 
-            <article class = "post">   
+            <article class="post"> 
+                <img 
+                class="post_thumbnail"
+                src="{{ post.banner.url }}"
+                alt="{{ post.title }}" 
+                />
                 <h2>
                     <a href="{% url 'posts:page' slug=post.slug %}">
                     {{ post.title }}
