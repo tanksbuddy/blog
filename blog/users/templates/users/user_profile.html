@@ -2,21 +2,30 @@
 
 {% block title %}Profile Page{% endblock title %}
 {% block content %}
-    <h1>This is the profile page for {{user.username}}</h1>
+    <h2>This is the profile page for {{user.username}} </h2>
+    <br>
     <h2>User posts:</h2>
+    <br>
 
+    <section>    
     {% for post in posts %}
 
-    <article class = "post">   
-        <h2>
-            <a href="{% url 'posts:page' slug=post.slug %}">
-            {{ post.title }}
-            </a>    
-        </h2>
-        <p> {{ post.date }} </p>
-        <p> {{ post.body }} </p>
-    </article>
+        <article class = "post"> 
+            <img 
+            class="post_thumbnail"
+            src="{{ post.banner.url }}"
+            alt="{{ post.title }}" 
+            />  
+            <h2>
+                <a href="{% url 'posts:page' slug=post.slug %}">
+                {{ post.title }}
+                </a>    
+            </h2>
+            <p> {{ post.date }} </p>
+            <p> {{ post.body }} </p>
+        </article>
 
-{% endfor %}
+    {% endfor %}
+    </section>
 
 {% endblock content %}

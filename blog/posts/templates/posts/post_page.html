@@ -14,6 +14,6 @@
         />
         <h1>{{ post.title }}</h1>
         <p> {{ post.date }} by <a href="{% url 'users:users-profile' username=post.author %}">{{ post.author }}</a></p>
-        <p> {{ post.body }} </p>
+        <p class="post"> {{ post.body }} </p>
     </section>
 {% endblock %}
